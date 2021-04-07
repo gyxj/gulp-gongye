@@ -318,13 +318,13 @@ const compile = parallel(style, script, page)
 // 上线之前需要执行的任务
 const build = series(clean, parallel(compile, image, font, extra))
 // 开发环境需要执行的任务
-const dev = series(compile, serve)
+const develop = series(compile, serve)
 // 导出任务成员
 module.exports = {
 	compile,
 	clean,
 	build,
-	dev
+	develop
 }
 ```
 
@@ -349,7 +349,7 @@ module.exports = {
 	compile,
 	clean,
 	build,
-	dev,
+	develop,
 	useref
 }
 ```
@@ -560,14 +560,14 @@ const build = series(
 )
 
 // 开发环境需要执行的任务
-const dev = series(compile, serve)
+const develop = series(compile, serve)
 
 // 导出任务成员
 module.exports = {
 	clean,
 	build,
 	serve,
-	dev
+	develop
 }
 ```
 
@@ -582,6 +582,6 @@ module.exports = {
     "clean": "gulp clean",
     "build": "gulp build",
     "serve": "gulp serve",
-    "dev": "gulp dev"
+    "develop": "gulp develop"
  },
 ```
