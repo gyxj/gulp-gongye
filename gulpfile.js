@@ -161,8 +161,8 @@ const useref = () => {
 		.pipe(plugins.if(/\.css$/, plugins.cleanCss()))
 		.pipe(plugins.if(/\.html$/, plugins.htmlmin({
 			collapseWhitespace: true,
-			minifyCss: true,
-			minifyJs: true
+			minifyCSS: true,
+			minifyJS: true
 		})))
 		.pipe(dest('dist'))
 }
@@ -185,11 +185,11 @@ const build = series(
 )
 
 // 开发环境需要执行的任务
-const dev = series(compile, serve)
+const develop = series(compile, serve)
 
 // 导出任务成员
 module.exports = {
 	clean,
 	build,
-	dev
+	develop
 }
